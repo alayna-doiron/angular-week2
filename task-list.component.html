@@ -1,0 +1,26 @@
+<input placeholder="Task Name" [(ngModel)]="newTask.taskName">
+<select [(ngModel)]="newTask.taskCategory">
+	<option value="home">Home</option>
+	<option value="Work">Work</option>
+	<option value="Fun">Fun</option>
+</select>
+<select type="number" [(ngModel)]="newTask.taskPriority">
+	<option type="number" value="1">1</option>
+	<option type="number" value="2">2</option>
+	<option type="number" value="3">3</option>
+</select>
+<button (click)="addTask()" [disabled]="!newTask.taskName || !newTask.taskPriority">Add Task</button>
+
+<table>
+	<tr>
+		<th>Task Name</th>
+		<th>Category</th>
+		<th>Priority</th>
+	</tr>
+
+	<tr *ngFor="let task of tasks">
+		<td>{{task.taskName}}</td>
+		<td>{{task.taskCategory}}</td>
+		<td>{{task.taskPriority}}</td>
+	</tr>
+</table>
